@@ -24,14 +24,15 @@
 
 package net.malisis.doors.gui;
 
-import org.lwjgl.input.Keyboard;
-
 import net.malisis.core.client.gui.Anchor;
 import net.malisis.core.client.gui.MalisisGui;
-import net.malisis.core.client.gui.component.container.UIContainer;
-import net.malisis.core.client.gui.render.BackgroundTexture.WindowBackground;
+import net.malisis.core.client.gui.component.container.UIWindow;
 import net.malisis.doors.network.DigicodeMessage;
 import net.malisis.doors.tileentity.DoorTileEntity;
+
+import java.io.IOException;
+
+import org.lwjgl.input.Keyboard;
 
 /**
  * @author Ordinastie
@@ -54,8 +55,7 @@ public class DigicodeGui extends MalisisGui
 	{
 		digicode = new Digicode(this, expected).setAnchor(Anchor.MIDDLE | Anchor.CENTER).register(this);
 
-		UIContainer<?> window = new UIContainer<>(this, digicode.getWidth() + 20, digicode.getHeight() + 20);
-		window.setBackground(new WindowBackground(this));
+		UIWindow window = new UIWindow(this, digicode.getWidth() + 20, digicode.getHeight() + 20);
 		window.add(digicode);
 
 		addToScreen(window);
@@ -64,7 +64,7 @@ public class DigicodeGui extends MalisisGui
 	}
 
 	@Override
-	protected void keyTyped(char keyChar, int keyCode)
+	protected void keyTyped(char keyChar, int keyCode) throws IOException
 	{
 		super.keyTyped(keyChar, keyCode);
 

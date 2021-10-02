@@ -9,3 +9,6 @@ bin/*
 gradle.properties
 init.gradle
 /libs
+/.gradle/
+/build/
+/assets/
