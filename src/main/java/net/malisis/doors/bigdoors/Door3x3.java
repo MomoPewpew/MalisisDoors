@@ -65,7 +65,7 @@ public class Door3x3 extends MalisisBlock implements ITileEntityProvider, IChunk
 
 	public Door3x3(Type type)
 	{
-		super(type.metal ? Material.IRON : Material.WOOD);
+		super(Material.CARPET);
 		this.type = type;
 		setName(type.name);
 
